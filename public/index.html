@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Picky</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <form id="open">
+        <label for="dir">Directory</label>
+        <input id="dir" name="dir" placeholder="~/my-speckit-project" autocomplete="off" spellcheck="false" />
+        <button>Open</button>
+        <span id="dir-error" class="error" role="alert"></span>
+      </form>
+      <div id="jump">
+        <button id="prev-unread" type="button">↑ Previous unread</button>
+        <button id="next-unread" type="button">Next unread ↓</button>
+        <span id="jump-status" class="hint" role="status"></span>
+      </div>
+    </header>
+    <div id="layout">
+      <nav id="files" aria-label="Files"></nav>
+      <main id="view"></main>
+    </div>
+    <button id="ask-btn" type="button" hidden>Ask Claude</button>
+    <aside id="ask" aria-label="Ask Claude" hidden>
+      <div class="ask-head">
+        <strong>Ask Claude</strong>
+        <button id="ask-close" type="button" aria-label="Close">×</button>
+      </div>
+      <label for="ask-session">Session</label>
+      <select id="ask-session"></select>
+      <div id="ask-thread"></div>
+      <form id="ask-form">
+        <blockquote id="ask-quote" hidden></blockquote>
+        <textarea id="ask-q" rows="3" placeholder="Ask about the selected text…" aria-label="Question"></textarea>
+        <div class="ask-actions">
+          <button>Ask</button>
+          <button id="ask-new" type="button">New thread</button>
+          <span id="ask-status" role="status"></span>
+        </div>
+      </form>
+    </aside>
+    <dialog id="unsaved">
+      <form method="dialog">
+        <p>You have unsaved changes in this section.</p>
+        <button value="save">Save</button>
+        <button value="discard">Discard</button>
+        <button value="stay" autofocus>Stay</button>
+      </form>
+    </dialog>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
